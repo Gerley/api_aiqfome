@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+*.pyc
+db.sqlite3
+
+# Docker
+/postgres_data

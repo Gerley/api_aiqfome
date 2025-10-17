@@ -1,0 +1,31 @@
+services:
+  api:
+    build:
+      context: .
+    environment:
+      URL_EXTERNAL_API: https://fakestoreapi.com/products
+      DATABASE_NAME: api_aiqfome
+      DATABASE_USER: api_user
+      DATABASE_PASSWORD: )</+#h.u44P<ILy0
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+    volumes:
+      - ./api_aiqfome:/app
+    ports:
+      - "8001:8000"
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+    container_name: api
+
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: api_aiqfome
+      POSTGRES_USER: api_user
+      POSTGRES_PASSWORD: )</+#h.u44P<ILy0
+    volumes:
+      - ./postgres_data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
